@@ -52,7 +52,26 @@ public class BurgerTest extends Burger{
 
     }
 
+    @Test
+    public void getReceiptTest(){
+        Database database = new Database();
+        List<Bun> buns = database.availableBuns();
+        List<Ingredient> ingredients = database.availableIngredients();
+
+        Burger burgerSourBlackCutlet = new Burger();
+        burgerSourBlackCutlet.setBuns(buns.get(0));
+        burgerSourBlackCutlet.addIngredient(ingredients.get(1));
+        burgerSourBlackCutlet.addIngredient(ingredients.get(3));
+        String n = System.lineSeparator();
+        String expectedSourBlackCutlet = new String(String.format("(==== black bun ====)" + n +
+                "= sauce sour cream =" + n +
+                "= filling cutlet =" + n +
+                "(==== black bun ====)" + n
+                + n +
+                "Price: 500,000000") + n);
+        Assert.assertEquals(burgerSourBlackCutlet.getReceipt(),expectedSourBlackCutlet);
     }
 
 }
+
 

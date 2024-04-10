@@ -9,11 +9,11 @@ import praktikum.Ingredient;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class ParameterizedGetReceipt{
+public class ParameterizedBurgerGetReceiptTest {
     private final Burger burger;
     private final String expected;
 
-    public ParameterizedGetReceipt(Burger burger,String expected){
+    public ParameterizedBurgerGetReceiptTest(Burger burger, String expected){
         this.burger = burger;
         this.expected = expected;
     }
@@ -56,13 +56,14 @@ public class ParameterizedGetReceipt{
         String expectedChiliRedSausage = new String(String.format("(==== red bun ====)" + n +
                 "= sauce chili sauce =" + n +
                 "= filling sausage =" + n +
-                "(==== white bun ====)" + n
+                "(==== red bun ====)" + n
                 + n +
                 "Price: 1200,000000") + n);
 
         return new Object[][]{
                 {burgerSourBlackCutlet,expectedSourBlackCutlet},
                 {burgerHotWhiteDinosaur,expectedHotWhiteDinosaur},
+                {burgerChiliRedSausage,expectedChiliRedSausage},
         };
     }
 
